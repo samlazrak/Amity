@@ -1,0 +1,30 @@
+{
+  "raven": {
+    "dsn": "raven-dsn"
+  },
+  "jwt": {
+    "cert": "jwt-cert",
+    "pub": "jwt-pub"
+  },
+  "postgres": {
+    "url": "postgres-url"
+  },
+  "sendgrid": {
+    "key": "sendgrid-key"
+  },
+  "okta": {
+    "issuer": "okta-issuer",
+    "entryPoint": "okta-entryPoint",
+    "cert": "okta-cert"
+  },
+  "bamboo": {
+    "key": "bamboo-key"
+  },
+  "redis": {
+    "url": "redis-url"
+  },
+  "jira": {
+    "username": "jira-username",
+    "password": "jira-password"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "app": {
+    "url": "APP_URL"
+  },
+  "raven": {
+    "dsn": "RAVEN_DSN"
+  },
+  "postgres": {
+    "url": "DATABASE_URL"
+  },
+  "sendgrid": {
+    "key": "SENDGRID_KEY"
+  },
+  "jwt": {
+    "cert": "JWT_CERT",
+    "pub": "JWT_PUB"
+  },
+  "okta": {
+    "issuer": "OKTA_ISSUER",
+    "entryPoint": "OKTA_ENTRYPOINT",
+    "cert": "OKTA_CERT"
+  },
+  "bamboo": {
+    "key": "BAMBOO_KEY"
+  },
+  "redis": {
+    "url": "REDISCLOUD_URL"
+  },
+  "procore": {
+    "auth": {
+      "client_id": "PROCORE_CLIENT_ID",
+      "client_secret": "PROCORE_CLIENT_SECRET"
+    }
+  },
+  "jira": {
+    "username": "JIRA_USERNAME",
+    "password": "JIRA_PASSWORD"
+  }
+}

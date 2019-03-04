@@ -1,0 +1,85 @@
+# User permissions
+type UserRoles {
+  permissions: [String]!
+}
+
+input UserRolesInput {
+  permissions: [String]!
+}
+
+type BambooProfile {
+  id: String
+  displayName: String
+  firstName: String
+  lastName: String
+  preferredName: String
+  gender: String
+  jobTitle: String
+  workPhone: String
+  mobilePhone: String
+  workEmail: String
+  department: String
+  location: String
+  photoUploaded: Boolean
+  photoUrl: String
+}
+
+# The base user object
+type User {
+  # UUID of the user
+  id: ID!
+  # Full name of the user
+  name: String!
+  # Email address of the user
+  email: String!
+  # User permission level
+  userRoles: UserRoles!
+  bambooProfile: BambooProfile
+}
+
+input UserInput {
+  name: String
+  email: String
+  password: String
+  userRoles: UserRolesInput
+}
+
+type AuthResponse {
+  token: String!
+  user: User!
+}
+
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+type UserInvite {
+  id: String!
+  email: String!
+}
+
+type PasswordReset {
+  id: String!
+  email: String!
+}
+
+type Query {
+  # Returns a single user
+  user(id: ID!): User!
+  # All users
+  users: [User]!
+  # The currently signed in user
+  me: User!
+  verifyPasswordReset(token: String!): PasswordReset!
+}
+
+type Mutation {
+  authenticate(input: AuthInput!): AuthResponse!
+  createUser(token: String!, input: UserInput!): User!
+  updateUser(id: ID!, input: UserInput!): User!
+  deleteUser(id: ID!): Boolean
+  inviteUser(name: String!, email: String!): Boolean
+  requestPasswordReset(email: String!): Boolean
+  resetPassword(token: String!, password: String!): Boolean
+}

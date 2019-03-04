@@ -1,0 +1,25 @@
+{
+  "env": "production",
+  "app": {
+    "url": "http://localhost:3000/"
+  },
+  "authentication": {
+    "ttl": "7d"
+  },
+  "bamboo": {
+    "baseUrl": "https://api.bamboohr.com/api/gateway.php/creature/v1/"
+  },
+  "procore": {
+    "authUrl": "https://login.procore.com/oauth/token",
+    "baseUrl": "https://api.procore.com/",
+    "companyId": "5682",
+    "auth": {
+      "grant_type": "client_credentials"
+    }
+  },
+  "jira": {
+    "baseUrl": "https://goldenconstruction.atlassian.net",
+    "defaultBoardId": "11",
+    "maxIssueResults": 10000
+  }
+}

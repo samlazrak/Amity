@@ -1,0 +1,204 @@
+type Company {
+  id: String
+  name: String
+}
+
+type FinancialProject {
+  id: String
+  name: String
+}
+
+type LineItemType {
+  id: String
+  name: String
+  code: String
+  baseType: String
+  originData: String
+  originId: String
+}
+
+type CostCode {
+  id: String
+  biller: String
+  billderId: String
+  budgeted: Boolean
+  code: String
+  createdAt: String
+  deletedAt: String
+  fullCode: String
+  name: String
+  originData: String
+  originId: String
+  position: Int
+  sortableCode: String
+  standardCostCodeId: String
+  updatedAt: String
+  lineItemTypes: [LineItemType]
+}
+
+type PrimeContractLineItem {
+  id: String
+  amount: Float
+  company: Company
+  costCode: CostCode
+  createdAt: String
+  description: String
+  extendedType: String
+  LineItemType: LineItemType
+  originData: String
+  originId: String
+  position: Int
+  project: FinancialProject
+  quantity: Float
+  totalAmount: Float
+  extendedAmount: Float
+  unitCost: Float
+  uom: String
+  updatedAt: String
+}
+
+type PaymentReceivedAttachment {
+  id: String
+  url: String
+  filename: String
+}
+
+type PaymentReceived {
+  id: String
+  amount: Float
+  checkNumber: String
+  createdAt: String
+  date: String
+  drawRequestNumber: Int
+  invoiceNumber: String
+  notes: String
+  paymentNumber: Int
+  attachments: [PaymentReceivedAttachment]
+  originId: String
+  originData: String
+}
+
+type PrimeContractAttachment {
+  id: String
+  url: String
+  filename: String
+}
+
+# TODO - Prime Contract fields are not complete
+# Refer to Procore docs if needed field is missing
+# https://developers.procore.com/reference/prime-contracts
+
+type PrimeContract {
+  id: String
+  accountingMethod: String
+  actualCompletionDate: String
+  allowComments: Boolean
+  allowMarkups: Boolean
+  allowPaymentApplications: Boolean
+  allowPayments: Boolean
+  allowRedistributions: Boolean
+  approvedChangeOrders: Float
+  billTo: String
+  BudgetLineItemId: Float
+  contractEstimatedCompletionDate: String
+  contractStartDate: String
+  contractTerminationDate: String
+  createdAt: String
+  deletedAt: String
+  deliveryDate: String
+  description: String
+  displayMaterialsRetainage: Boolean
+  displayStoredMaterials: Boolean
+  displayWorkRetainage: Boolean
+  erpRejected: Boolean
+  erpReviewable: Boolean
+  exclusions: String
+  executed: Boolean
+  grandTotal: String
+  inclusions: String
+  StringlineItemsExtendedTotal: Float
+  lineItemsTotal: Float
+  Float: String
+  originData: String
+  originId: String
+  paymentTerms: String
+  percentagePaid: Float
+  position: Int
+  private: Boolean
+  rejectedMessage: String
+  shipTo: String
+  shipVia: String
+  signedContractReceivedDate: String
+  status: String
+  title: String
+  totalPayments: Float
+  type: String
+  updatedAt: String
+  lineItems: [PrimeContractLineItem]
+  paymentsReceived: [PaymentReceived]
+  attachments: [PrimeContractAttachment]
+}
+
+type g702 {
+  balanceToFinishIncludingRetainage: Float
+  completedWorkRetainagePercent: Float
+  completedWorkRetainageAmount: Float
+  contractSumToDate: Float
+  currentPaymentDue: Float
+  lessPerviousCertificatesForPayment: Float
+  netChangeByChangeOrders: Float
+  originalContractSum: Float
+  storedMaterialsRetainageAmount: Float
+  storedMaterialsRetainagePercent: Float
+  totalCompletedAndStoredToDate: Float
+  totalEarnedLessRetainage: Float
+  totalRetainage: Float
+}
+
+type g703 {
+  id: String
+  balanceToFinish: Float
+  materialsPresentlyStored: Float
+  scheduledValue: Float
+  totalCompletedAndStoredToDate: Float
+  totalCompletedAndStoredToDatePercent: Float
+  workCompletedFromPreviousApplication: Float
+  workCompletedThisPeriod: Float
+  descriptionOfWork: String
+  itemNumber: Int
+  costCode: CostCode
+  scheduledUnitPrice: Float
+  scheduledQuantity: Float
+  totalCompletedAndStoredToDateQuantity: Float
+  workCompletedThisPeriodQuantity: Float
+  workCompletedFromPreviousApplicationQuantity: Float
+  totalRetainageCurrentlyRetained: Float
+  totalRetainageFromPreviousApplication: Float
+}
+
+type PaymentApplicationContract {
+  id: String
+  type: String
+  title: String
+}
+
+type PaymentApplication {
+  id: String
+  billingDate: String
+  invoiceNumber: String
+  originData: String
+  percentComplete: Float
+  periodStart: String
+  periodEnd: String
+  status: String
+  number: Int
+  g703: [g703]
+  g702: g702
+  contract: PaymentApplicationContract
+}
+
+type Query {
+  primeContract(projectId: String!): PrimeContract
+  paymentApplication(projectId: String!): PaymentApplication
+  paymentApplications(projectId: String!): [PaymentApplication]
+}

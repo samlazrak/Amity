@@ -1,0 +1,19 @@
+type CacheKey {
+  id: String
+  name: String
+  ttl: String
+}
+
+input CacheKeyInput {
+  name: String!
+  ttl: String!
+}
+
+type Query {
+  cacheKeys: [CacheKey]
+}
+
+type Mutation {
+  setCacheKeyTtl(input: CacheKeyInput!): Boolean!
+  resetCacheKeyTtl(name: String): Boolean!
+}

@@ -1,0 +1,16 @@
+language: node_js
+os:
+- linux
+node_js:
+- lts/*
+cache:
+  yarn: true
+notifications:
+  slack: creaturebuilds:hayJUShOclmmPgv8EKGAZIHj
+deploy:
+  provider: heroku
+  api_key:
+    secure: jQj+kwFDksxpbE2o/FuYoJgDlWZuwcbQZ453Pb8sOsvaAZmg+m/11NyzndjlhQTZt7RqUeZooTL+73IGisDQIcNwN8+N7kYvspvq2jGuPYo1VBGxayilHOEvumt8DwkWGKgY+SSHizBPu6wb+jnR3B3iQ4icr9Ccl0jl8X8hFV4rB2PQNyevNJ+z8cUUCa+UH9SOToInYxkZkk3Ctv6TBzXH7M41Qz20n8FjGtxx1hljhYLN2colCExVTv+qpKmoBi1z34oTu2Vyh26iKMrZsQxvtpM3hCuoELQDa0MkXUgPM93jL/vhxdi82DkFN+WzZPD+xz1YraojhwWNOjFH2tu0m4a+TIFjnNmPIxUEV41a3NScK74CJ/P05rv4WXhteeXmvbUeduKyOkZz3UbU0u4ST3b6dwSPD4vBfnXAynqhypCAHO8zj7utpcok5zKO45OBEGgyWPr6/nviYRac8k4YrCp6kKAGr+Z/yA5cTSmK5DsX7Hz/IZBmFkU0EFVzCzLWYzCOANbE07E6fSwp/I8L+ytZjLaBjaIKw3yJRyfYPZhfAlJvB4xhhD+wNAIwVue6YvzHM3FInPE3xKMnBP04AcfbrjH8Ay2RlS0n86aIIrz95SefXE+deLn9LzGFt3VCqy0hSAKtuxJdY0ZNG4sAuRVQIW9lge2OPbuU3Y4=
+  app: creature-amity-staging
+  on:
+    repo: creaturebuilds/amity

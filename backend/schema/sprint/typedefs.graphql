@@ -1,0 +1,13 @@
+type SprintFields {
+  summary: String
+  category: String
+  priority: String
+}
+
+type SprintIssue {
+  fields: SprintFields
+}
+
+type Query {
+  sprintIssues(projectId: String): [SprintIssue]
+}

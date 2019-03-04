@@ -1,0 +1,24 @@
+type Project {
+  id: String
+  name: String
+  displayName: String
+  projectNumber: String
+  address: String
+  city: String
+  stateCode: String
+  countryCode: String
+  zip: String
+  county: String
+  latitude: String
+  longitude: String
+  program: String
+  estimatedStartDate: String
+  estimatedCompletionDate: String
+  flag: String
+  active: Boolean
+}
+
+type Query {
+  project(projectId: String!): Project
+  projects: [Project]
+}
