@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/creaturebuilds/amity.svg?token=2mJiqhzs9KLeywNzb84z&branch=master)](https://travis-ci.com/creaturebuilds/amity)
+# No longer used by Creature so made public for portfolio
 
 # amity
 
